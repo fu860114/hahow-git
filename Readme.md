@@ -269,9 +269,51 @@ git bisect reset
 ### GitLab(受保護的分支)
 ![](https://i.imgur.com/iMQ7uEX.png)
 
+## git-extras
+git的好用外掛
+    
+- git-extras文件說明：
+https://github.com/tj/git-extras
+### mac安裝經驗
+無法使用brew，用Building from source下載
+    
+```
+$ git clone https://github.com/tj/git-extras.git
+$ cd git-extras
+# checkout the latest tag
+$ git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
+$ [sudo] make install
+```
+git原先的alias會被git-extras的git-alias取代掉
+![](https://i.imgur.com/Cw2y6Uu.png)
 
+## git alias
+git 別名
+因載了git-extras，所以會用git-extras的git alias寫法。
+    
+用法
+```
+$ git alias last "cat-file commit HEAD"
+    //last = cat-file commit HEAD
+```
+
+看所有alias
+```
+$ git alias
+s = status
+amend = commit --amend
+rank = shortlog -sn --no-merges
+whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+whois = !sh -c 'git log -i -1 --pretty="format:%an <%ae>
+```
+    
+我的設定
+```
+lol = log --oneline
+co = checkout
+```
 ## 補充文件
-因為這個單元之後都會使用 git-tree 這個指令，所以要安裝 git-tree 這個指令，以下是安裝方式
+因為這個單元之後都會使用 git-tree 這個指令，所以要安裝 git-tree 這個指令，以下是安裝方式(超TM難用，用sourcetree 取代)
 
 ### 先安裝 tmux (Windows)
 - 下載 https://drive.google.com/open?id=15YIS3aZ5OEmAlNSOCwucRNo3_ZGRDFIP
@@ -288,8 +330,10 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 ### 再安裝 git-tree (Windows/Mac/Linux)
 git-tree 安裝說明：https://gist.github.com/kewang/8c478078f2a98f32f5bcbfca1348a8a1#file-readme-md
 
+    
 ## 參考文件
-https://hackmd.io/aEnSQltrQ2ad1P2sjT_jAw?both
+* https://hackmd.io/aEnSQltrQ2ad1P2sjT_jAw?both* 
+* [動畫教學](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1#merge)
 
 
 ## 超好用功能
